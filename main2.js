@@ -11,46 +11,10 @@ let questions = {
 	"Array": "A list of JavaScript values. In an array, each value has an index, which is the numbered position of that value in the array. The first value is at index 0, the next value is at index 1, and so on.",
 	"Boolean": "A value that can be either true or false."
 }
-
-//to put the questions into an array
+//turning the questions into indexable arrays
 const question = Object.entries(questions)
-// for (let i = 0; i < question.length; i++){
-// 	// console.log(question[i])
-// }
 
-// let i = 0; //blake helped with this
-// console.log(i)
-//initial question
-// htmlQuestion.textContent = question[i][i]
-
-
-//logic for making the card change values
-// htmlCard.addEventListener("click", function(evt){
-// 	evt.preventDefault()
-// 	htmlQuestion.classList.toggle("hidden")
-// 	htmlAnswer.classList.toggle("show")
-// 	// htmlAnswer.textContent = question[i][1]
-// })
-
-// next.addEventListener("click", function(evt){
-// 	htmlQuestion.textContent = question[i + 1][0];
-// 	i++;
-// 	if (i >= (question.length -1)) {
-//         next.classList.toggle("hidden")
-//     }
-// 	console.log(i)
-// })
-// previous.addEventListener("click", function(evt){
-// 	htmlQuestion.textContent = question[i - 1][0];
-// 	i--;
-// 	if (i >= (question.length -1)) {
-//         previous.classList.toggle("hidden")
-//     } else {
-
-//     }
-// 	console.log(i)
-// })
-
+//logic for creaging a functional next and previous card button
 let i = 0
 function nextItem() {
     i = i + 1; 
@@ -64,13 +28,16 @@ function prevItem() {
     i = i - 1; 
     return question[i][0]; 
 }
+//initial loadup of questions
 htmlQuestion.textContent = question[i][0]
+//next and previous button event listeners
 next.addEventListener('click', function(evt){
 	htmlQuestion.textContent = nextItem()
 })
 previous.addEventListener('click', function(evt){
 	htmlQuestion.textContent = prevItem()
 })
+//event listener for making the card flip and show an answer
 htmlCard.addEventListener("click", function(evt){
 	evt.preventDefault()
 	htmlQuestion.classList.toggle("hidden")
