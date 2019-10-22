@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+main {
+	width:100%;
+}
+.card-container {
+	position: relative;
+	width: 550px;
+	height: 250px;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 30vh;
+}
+.hidden {
+	display: none;
+}
+.click {
+	padding: 8%;
+}
+.question,.answer {
+/*	position: absolute;*/
+	text-align: center;
+}
+.show {
+	display: revert;
+}
