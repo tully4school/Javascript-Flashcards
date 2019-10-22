@@ -25,3 +25,17 @@ main {
 .show {
 	display: revert;
 }
+.score {
+	display: flex;
+	justify-content: center;
+}
+.moveOn {
+	display: flex;
+	justify-content: center;
+}
+button {
+	background-color: white;
+	border: 1px solid black;
+	padding: 7px;
+	margin: 10px;
+}
