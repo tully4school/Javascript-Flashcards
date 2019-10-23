@@ -1,3 +1,5 @@
+let greeting = document.querySelector(".greeting")
+let rules = document.querySelector(".rules")
 let htmlCard = document.querySelector(".card-container")
 let htmlQuestion = document.querySelector(".click .question")
 let htmlAnswer = document.querySelector(".click .answer")
@@ -20,8 +22,31 @@ let domNodes = document.querySelector(".dom-node-prop")
 let domMethods = document.querySelector(".dom-methods")
 let elementMethods = document.querySelector(".element-methods")
 
+greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!"
+rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!"
+    // function displayOpener(){
+    // greeting.textContent = "Welcome To Javascrip Flashcards! Please hover over this card for more information":"hahaha"
+    // greeting.style.marginTop = "7px"
+    // greeting.style.fontSize = "40px"
+    // greeting.style.fontWeight = "bold"
+    // greeting.style.textAlign = "center"
+    // greeting.style.padding = "20px"
+
+// }
+// displayOpener()
+// document.addEventListener('keydown', function(evt){
+//     	if (evt.keyCode == 39){
+//         console.log(evt)}
+//     })
+function removeGreeting() {
+    greeting.style.display = "none"
+    rules.style.display = "none"
+}
+
 //questions and answers
 basic.addEventListener("click", function(evt) {
+    removeGreeting()
+    removeGreeting()
     let questions = {
             "Attribute": "A key-value pair in an HTML element. You can use HTML attributes to control certain aspects of an element, like where the element links to or the size of the element.",
             "Array": "A list of JavaScript values. In an array, each value has an index, which is the numbered position of that value in the array. The first value is at index 0, the next value is at index 1, and so on.",
@@ -70,13 +95,26 @@ basic.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 arrayMethods.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "concat()": "Join several arrays into one",
             "indexOf()": "Returns the primitive value of the specified object",
@@ -122,13 +160,26 @@ arrayMethods.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 basicOperators.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "+": "Addition",
             "-": "Subtraction",
@@ -167,13 +218,26 @@ basicOperators.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 bitwiseOperators.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "&": "AND statement",
             "|": "OR statement",
@@ -211,13 +275,26 @@ bitwiseOperators.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 basicOperators.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "+": "Addition",
             "-": "Subtraction",
@@ -259,13 +336,26 @@ basicOperators.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 ternaryOperators.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "==": "Equal to",
             "===": "Equal value and equal type",
@@ -305,13 +395,26 @@ ternaryOperators.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 outputData.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "alert()": "Output data in an alert box in the browser window",
             "confirm()": "Opens up a yes/no dialog and returns true/false depending on user click",
@@ -347,13 +450,26 @@ outputData.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 globalFunctions.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "decodeURI()": "Decodes a Uniform Resource Identifier (URI) created by encodeURI or similar",
             "decodeURIComponent()": "Decodes a URI component",
@@ -394,13 +510,26 @@ globalFunctions.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 string.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "charAt()": "Returns a character at a specified position inside a string char",
             "CodeAt()": "Gives you the unicode of character at that position",
@@ -447,14 +576,27 @@ string.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 
 number.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "toExponential()": "Returns a string with a rounded number written as exponential notation",
             "toFixed()": "Returns the string of a number with a specified number of decimals",
@@ -491,13 +633,26 @@ number.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 math.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "abs(x)": "Returns the absolute (positive) value of x",
             "acos(x)": "The arccosine of x, in radians",
@@ -547,13 +702,26 @@ math.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 domNodes.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "attributes": "Returns a live collection of all attributes registered to and element",
             "baseURI": "Provides the absolute base URL of an HTML element",
@@ -598,13 +766,26 @@ domNodes.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 domMethods.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
             "appendChild()": "Adds a new child node to an element as the last child node",
             "cloneNode()": "Clones an HTML element",
@@ -652,29 +833,42 @@ domMethods.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
 })
 elementMethods.addEventListener("click", function(evt) {
+    removeGreeting()
     let questions = {
-"getAttribute()" : "Returns the specified attribute value of an element node get",
-"AttributeNS()" : "Returns string value of the attribute with the specified namespace and name",
-"getAttributeNode()" : "Gets the specified attribute node",
-"getAttributeNodeNS()" : "Returns the attribute node for the attribute with the given namespace and name",
-"getElementsByTagName()" : "Provides a collection of all child elements with the specified tag name",
-"getElementsByTagNameNS()" : "Returns a live HTMLCollection of elements with a certain tag name belonging to the given namespace",
-"hasAttribute()" : "Returns true if an element has any attributes, otherwise false",
-"hasAttributeNS()" : "Provides a true/false value indicating whether the current element in a given namespace has the specified attribute",
-"removeAttribute()" : "Removes a specified attribute from an element",
-"removeAttributeNS()" : "Removes the specified attribute from an element within a certain namespace",
-"removeAttributeNode()" : "Takes away a specified attribute node and returns the removed node",
-"setAttribute()" : "Sets or changes the specified attribute to a specified value",
-"setAttributeNS()" : "Adds a new attribute or changes the value of an attribute with the given namespace and name",
-"setAttributeNode()" : "Sets or changes the specified attribute node",
-"setAttributeNodeNS()" : "Adds a new namespaced attribute node to an element",
+            "getAttribute()": "Returns the specified attribute value of an element node get",
+            "AttributeNS()": "Returns string value of the attribute with the specified namespace and name",
+            "getAttributeNode()": "Gets the specified attribute node",
+            "getAttributeNodeNS()": "Returns the attribute node for the attribute with the given namespace and name",
+            "getElementsByTagName()": "Provides a collection of all child elements with the specified tag name",
+            "getElementsByTagNameNS()": "Returns a live HTMLCollection of elements with a certain tag name belonging to the given namespace",
+            "hasAttribute()": "Returns true if an element has any attributes, otherwise false",
+            "hasAttributeNS()": "Provides a true/false value indicating whether the current element in a given namespace has the specified attribute",
+            "removeAttribute()": "Removes a specified attribute from an element",
+            "removeAttributeNS()": "Removes the specified attribute from an element within a certain namespace",
+            "removeAttributeNode()": "Takes away a specified attribute node and returns the removed node",
+            "setAttribute()": "Sets or changes the specified attribute to a specified value",
+            "setAttributeNS()": "Adds a new attribute or changes the value of an attribute with the given namespace and name",
+            "setAttributeNode()": "Sets or changes the specified attribute node",
+            "setAttributeNodeNS()": "Adds a new namespaced attribute node to an element",
 
         }
         //turning the questions into indexable arrays
@@ -705,10 +899,22 @@ elementMethods.addEventListener("click", function(evt) {
         htmlQuestion.textContent = nextItem()
         htmlAnswer.textContent = question[i][1]
     })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem()
+            htmlAnswer.textContent = question[i][1]
+        }
+    })
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem()
         htmlAnswer.textContent = question[i][1]
 
+    })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem()
+            htmlAnswer.textContent = question[i][1]
+        }
     })
 })
 let points = 0

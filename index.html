@@ -8,9 +8,9 @@
 	<body>
 		<main>
 			<div class="top">
-									<div class="logo">
+									<!-- <div class="logo">
 						<p class="logo">Javascript Flashcards</p>
-					</div>
+					</div> -->
 				<div class="navbar">
 					<div class="dropdown">
 						<button class="dropbtn">Vocabulary<i class="fa fa-caret-down"></i></button>
@@ -63,12 +63,19 @@
 				</div>
 			</div>
 		</div>
+		<div class="difficulty">
+			<button class="easy">Easy</button>
+			<button class="medium">Medium</button>
+			<button class="hard">HARD</button>
+		</div>
 		<div class="card-container" ontouchstart="this.classList.toggle('hover');">
 			<div class="click flipper">
 				<div class="front-of-card">
+					<p class="greeting"></p>
 					<p class="question"></p>
 				</div>
 				<div class="back-of-card">
+					<p class="rules"></p>
 					<p class="answer"></p>
 				</div>
 			</div>
