@@ -7,36 +7,95 @@
 	</head>
 	<body>
 		<main>
-			<div class="points">
-				<p class="score"><span>Your Score is: </span><span class=digits></span></p>
-			</div>
-			<div class="card-container" ontouchstart="this.classList.toggle('hover');">
-				<div class="click flipper">
-					<div class="front-of-card">
-						<p class="question"></p>
+			<div class="top">
+									<div class="logo">
+						<p class="logo">Javascript Flashcards</p>
 					</div>
-					<div class="back-of-card">
-						<p class="answer"></p>
+				<div class="navbar">
+					<div class="dropdown">
+						<button class="dropbtn">Vocabulary<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn basic">Basic Vocabulary</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">Operators<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn basic-operators">Basic Operators</button>
+							<button class="linkbtn ternary-operators">Ternary Operators</button>
+							<button class="linkbtn bitwise-operators">Bitwise Operators</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">Functions<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn output-data">Outputting Data</button>
+							<button class="linkbtn global-functions">Global Functions</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">Arrays<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn array-methods">Array Methods</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">Strings<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn string-methods">String Methods</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">Numbers && Math<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn number-methods">Number Methods</button>
+							<button class="linkbtn math-methods">Math Methods</button>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn">THE DOM<i class="fa fa-caret-down"></i></button>
+						<div class="dropdown-content">
+							<button class="linkbtn dom-node-prop">DOM Node Properties</button>
+							<button class="linkbtn dom-methods">DOM Node Methods</button>
+							<button class="linkbtn element-methods">DOM Element Methods</button>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="score-buttons">
-				<div class="pass">
-					<button class="correct">I Got It Right!</button>
+		</div>
+		<div class="card-container" ontouchstart="this.classList.toggle('hover');">
+			<div class="click flipper">
+				<div class="front-of-card">
+					<p class="question"></p>
 				</div>
-				<div class="fail">
-					<button class="wrong">I Got It Wrong</button>
-				</div>
-			</div>
-			<div class="moveOn">
-				<div class="back">
-					<button class="previous">Previous Card</button>
-				</div>
-				<div class="forward">
-					<button class="next">Next Card</button>
+				<div class="back-of-card">
+					<p class="answer"></p>
 				</div>
 			</div>
-		</main>
-		<script src="main2.js"></script>
-	</body>
+		</div>
+		<div class="points">
+			<p>Your Score</p>
+			<div class="score">
+				<p class="digits"></p>
+			</div>
+		</div>
+		<div class="score-buttons">
+			<div class="pass">
+				<button class="correct">I Got It Right!</button>
+			</div>
+			<div class="fail">
+				<button class="wrong">I Got It Wrong</button>
+			</div>
+		</div>
+		<div class="moveOn">
+			<div class="back">
+				<button class="previous">Previous Card</button>
+			</div>
+			<div class="forward">
+				<button class="next">Next Card</button>
+			</div>
+		</div>
+	</main>
+	<script src="main2.js"></script>
+</body>
 </html>
