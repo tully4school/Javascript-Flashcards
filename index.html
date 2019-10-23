@@ -7,17 +7,20 @@
 	</head>
 	<body>
 		<main>
-			<div class="card-container">
-				<div class="click">
-					<h1 class="question">
-					
-					</h1>
-					<h2 class="answer hidden">
-					
-					</h2>
+			<div class="points">
+				<p class="score"><span>Your Score is: </span><span class=digits></span></p>
+			</div>
+			<div class="card-container" ontouchstart="this.classList.toggle('hover');">
+				<div class="click flipper">
+					<div class="front-of-card">
+						<p class="question"></p>
+					</div>
+					<div class="back-of-card">
+						<p class="answer"></p>
+					</div>
 				</div>
 			</div>
-			<div class="score">
+			<div class="score-buttons">
 				<div class="pass">
 					<button class="correct">I Got It Right!</button>
 				</div>

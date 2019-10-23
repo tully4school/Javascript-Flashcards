@@ -5,27 +5,54 @@ main {
 	width:100%;
 }
 .card-container {
-	position: relative;
+	perspective: 1000px;
+	margin: 10px auto;
+}
+.card-container:active .flipper, .card-container.hover .flipper {
+	transform: rotateY(180deg);
+	}
+
+.card-container, .front-of-card, .back-of-card {
 	width: 550px;
 	height: 250px;
-	border: 1px solid black;
-	margin: 0 auto;
-	margin-top: 30vh;
+	}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
 }
-.hidden {
-	display: none;
+.front-of-card, .back-of-card {
+	background-color: floralwhite;
+	box-shadow: 10px 10px 10px grey;
+	backface-visibility: hidden;
+	border: 2px solid black;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-.click {
-	padding: 8%;
+.front-of-card {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+.back-of-card {
+	transform: rotateY(180deg);
 }
 .question,.answer {
-/*	position: absolute;*/
 	text-align: center;
+}
+.question {
+	margin-top:17%;
+	font-size: 49px;
+}
+.answer {
+	font-size: 24px;
+	margin: 30px;
 }
 .show {
 	display: revert;
 }
-.score {
+.score-buttons {
 	display: flex;
 	justify-content: center;
 }
@@ -33,9 +60,54 @@ main {
 	display: flex;
 	justify-content: center;
 }
+.score {
+	display: flex;
+	font-size:25px;
+	font-weight: bold;
+	height: 25px;
+	justify-content: right;
+	margin-right: 60px;
+}
+.digits {
+	padding-left: 15px;
+}
+.red {
+	color: red;
+}
+.green {
+	color: green;
+}
 button {
 	background-color: white;
 	border: 1px solid black;
 	padding: 7px;
-	margin: 10px;
+	margin: 25px;
+	width: 120px;
+	border-radius: 3px;
+	box-shadow: 3px 3px 5px 0px gray;
 }
+button:active {
+	box-shadow: none;
+}
+
+
+/*PREVIOUS CODE FOR FLIP*/
+/*.card-container {
+	position: relative;
+	width: 550px;
+	height: 250px;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 15vh;
+	margin-bottom: 20px;
+	overflow: scroll;
+	scrollbar-width: none;
+}*/
+/*.card-container:active .flipper,  {
+}
+.hidden {
+	display: none;
+}
+.click {
+	padding: 0 8%;
+}*/
