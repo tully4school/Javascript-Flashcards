@@ -1,18 +1,17 @@
+/*Flipcard effect created with the help of w3 schools - i know there is an easier wat but dont have the time*/
+/*navbar with the help of w3 schools*/
 * {
 	box-sizing: border-box;
 }
 main {
 	width:100%;
 }
-/* Navbar container */
 .navbar {
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
   width: 100%;
 }
-
-/* Links inside the navbar */
 .navbar a {
   float: left;
   font-size: 16px;
@@ -21,8 +20,6 @@ main {
   padding: 14px 16px;
   text-decoration: none;
 }
-
-/* The dropdown container */
 .dropdown {
   float: left;
   overflow: hidden;
@@ -30,7 +27,6 @@ main {
 .linkbtn {
 	width: 100%;
 }
-/* Dropdown button */
 .dropdown .dropbtn, .linkbtn {
   font-size: 16px;
   border: none;
@@ -38,17 +34,13 @@ main {
   color: white;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  margin: 0;
 }
-
-/* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: grey;
   transition: ease .3s;
 }
-
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -57,8 +49,6 @@ main {
   box-shadow: 0px 8px 16px 0px grey;
   z-index: 1;
 }
-
-/* Links inside the dropdown */
 .dropdown-content a, .linkbtn {
   float: none;
   color: black;
@@ -67,13 +57,9 @@ main {
   display: block;
   text-align: left;
 }
-
-/* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover, .linkbtn:hover {
   background-color: #ddd;
 }
-
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
   transition: ease 1s;
@@ -110,8 +96,7 @@ main {
 	width: 550px;
 	height: 250px;
 	margin-top: 20px;
-	}
-
+}
 .flipper {
 	transition: 0.6s;
 	transform-style: preserve-3d;
@@ -201,6 +186,32 @@ button:active {
 	border-radius: 3px;
 	box-shadow: 0px 8px 16px 0px grey;
 }
+.hidden {
+	display: none;
+}
+.mobile-drop {
+	width: 100%;
+	font-size: 46px;
+    background-color: #333;
+    border: .5px solid grey;
+    color: white;
+    padding-bottom: 6px;
+}
+@media screen and (min-width: 762px){
+	.mobilenav {
+		display:none;
+	}
+}
+@media screen and (max-width: 761px){
+	.navbar {
+		display:none;
+	}
+}
+
+
+
+
+
 
 /*PREVIOUS CODE FOR FLIP*/
 /*.card-container {
@@ -216,9 +227,7 @@ button:active {
 }*/
 /*.card-container:active .flipper,  {
 }*/
-.hidden {
-	display: none;
-}
+
 /*.click {
 	padding: 0 8%;
 }*/

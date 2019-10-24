@@ -21,6 +21,8 @@ let math = document.querySelector(".math-methods");
 let domNodes = document.querySelector(".dom-node-prop");
 let domMethods = document.querySelector(".dom-methods");
 let elementMethods = document.querySelector(".element-methods");
+let mobileDrop = document.querySelector(".mobile-drop");
+let mobileDD = document.querySelectorAll(".mobileDD");
 let points = 0;
 let j = 0;
 let i = 0;
@@ -223,7 +225,6 @@ function removeGreeting() {
 
 function nextItem() {
     i = i + 1;
-    i = i % question.length;
     return question[i][0];
 }
 
@@ -293,6 +294,11 @@ function subP() {
             score.classList.remove("green");
         }
     })
+}
+function dropDown(){
+		for (let i = 0; i < mobileDD.length; i++){
+		mobileDD[i].classList.toggle("hidden")
+	}
 }
 //INITIAL GREETING
 greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!";
@@ -424,6 +430,9 @@ elementMethods.addEventListener("click", function(evt) {
     load();
     nextCard();
     previousCard();
+})
+mobileDrop.addEventListener("click", function(evt){
+	dropDown()
 })
 addP();
 subP();
