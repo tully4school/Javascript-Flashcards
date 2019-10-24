@@ -21,53 +21,43 @@ let math = document.querySelector(".math-methods")
 let domNodes = document.querySelector(".dom-node-prop")
 let domMethods = document.querySelector(".dom-methods")
 let elementMethods = document.querySelector(".element-methods")
+    // let rightAnswers = []
 
 greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!"
 rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!"
-    // function displayOpener(){
-    // greeting.textContent = "Welcome To Javascrip Flashcards! Please hover over this card for more information":"hahaha"
-    // greeting.style.marginTop = "7px"
-    // greeting.style.fontSize = "40px"
-    // greeting.style.fontWeight = "bold"
-    // greeting.style.textAlign = "center"
-    // greeting.style.padding = "20px"
 
-// }
-// displayOpener()
-// document.addEventListener('keydown', function(evt){
-//     	if (evt.keyCode == 39){
-//         console.log(evt)}
-//     })
 function removeGreeting() {
     greeting.style.display = "none"
     rules.style.display = "none"
 }
+let points = 0
 
 //questions and answers
 basic.addEventListener("click", function(evt) {
     removeGreeting()
-    removeGreeting()
     let questions = {
-            "Attribute": "A key-value pair in an HTML element. You can use HTML attributes to control certain aspects of an element, like where the element links to or the size of the element.",
-            "Array": "A list of JavaScript values. In an array, each value has an index, which is the numbered position of that value in the array. The first value is at index 0, the next value is at index 1, and so on.",
-            "Boolean": "A value that can be either true or false.",
-            "Camel Case": "A common way to name variables in which you capitalize the first letter of each word (except for the first word) and then join all the words to make one long word.",
-            "'DOM' Stands For": "Document Object Model",
-            "What is the DOM": "The way that web browsers organize and keep track of HTML elements on a web page. These elements are organized in a treelike structure called the DOM tree. JavaScript and jQuery provide methods that work with the DOM to create and modify elements.",
-            "Index": "A number that indicates the position of a value inside an array. The index can be used to access a specific value in an array.",
-            "Key-Value Pair": "A pair made up of a string (called a key) that is matched with a particular value (which can be any type of value). They go inside JavaScript objects, and they are used to define an object's properties and methods.",
-            "Library": "A collection of JavaScript code that we can load into our web pages to provides additional functions and method. In this book we use the jQuery library, which gives us functions and methods for working with the DOM more easily.",
-            "Object": "A set of key-value pairs. Each key is a string that can be paired with any JavaScript value. You can then use the key to retrieve whatever value it's paired with in the object.",
-            "String": "A list of characters surrounded by quotes, used to represent text in computer programs.",
-            "Syntax": "How keywords, punctuation, and other characters are combined to make working JavaScript programs.",
-            "Variable": "A way to give a JavaScript value a name. After you assign a value to a variable, you can use the variable name later to retrieve the value.",
-            "For Loop": "The most common way to create a loop in JavaScript",
-            "While Loop": "Sets up conditions under which aloop executes",
-            "Do while Loop": "Similar to the while loop, however, it executes at least once and performs a check at the end to see if the condition is met to execute again",
-            "Break Loop": "Used to stop and exit the cycle at certain conditions",
-            "Continue Loop": "Skip parts of the cycle if certain conditions are met",
-        }
-        //turning the questions into indexable arrays
+        "Attribute": "A key-value pair in an HTML element. You can use HTML attributes to control certain aspects of an element, like where the element links to or the size of the element.",
+        "Array": "A list of JavaScript values. In an array, each value has an index, which is the numbered position of that value in the array. The first value is at index 0, the next value is at index 1, and so on.",
+        "Boolean": "A value that can be either true or false.",
+        "Camel Case": "A common way to name variables in which you capitalize the first letter of each word (except for the first word) and then join all the words to make one long word.",
+        "'DOM' Stands For": "Document Object Model",
+        "What is the DOM": "The way that web browsers organize and keep track of HTML elements on a web page. These elements are organized in a treelike structure called the DOM tree. JavaScript and jQuery provide methods that work with the DOM to create and modify elements.",
+        "Index": "A number that indicates the position of a value inside an array. The index can be used to access a specific value in an array.",
+        "Key-Value Pair": "A pair made up of a string (called a key) that is matched with a particular value (which can be any type of value). They go inside JavaScript objects, and they are used to define an object's properties and methods.",
+        "Library": "A collection of JavaScript code that we can load into our web pages to provides additional functions and method. In this book we use the jQuery library, which gives us functions and methods for working with the DOM more easily.",
+        "Object": "A set of key-value pairs. Each key is a string that can be paired with any JavaScript value. You can then use the key to retrieve whatever value it's paired with in the object.",
+        "String": "A list of characters surrounded by quotes, used to represent text in computer programs.",
+        "Syntax": "How keywords, punctuation, and other characters are combined to make working JavaScript programs.",
+        "Variable": "A way to give a JavaScript value a name. After you assign a value to a variable, you can use the variable name later to retrieve the value.",
+        "For Loop": "The most common way to create a loop in JavaScript",
+        "While Loop": "Sets up conditions under which aloop executes",
+        "Do while Loop": "Similar to the while loop, however, it executes at least once and performs a check at the end to see if the condition is met to execute again",
+        "Break Loop": "Used to stop and exit the cycle at certain conditions",
+        "Continue Loop": "Skip parts of the cycle if certain conditions are met",
+    }
+    console.log(questions.length)
+
+    //turning the questions into indexable arrays
     const question = Object.entries(questions)
 
     //logic for creaging a functional next and previous card button
@@ -110,6 +100,30 @@ basic.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -177,6 +191,30 @@ arrayMethods.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 basicOperators.addEventListener("click", function(evt) {
     removeGreeting()
@@ -235,6 +273,30 @@ basicOperators.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 bitwiseOperators.addEventListener("click", function(evt) {
     removeGreeting()
@@ -290,6 +352,30 @@ bitwiseOperators.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -353,6 +439,30 @@ basicOperators.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 ternaryOperators.addEventListener("click", function(evt) {
     removeGreeting()
@@ -412,6 +522,30 @@ ternaryOperators.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 outputData.addEventListener("click", function(evt) {
     removeGreeting()
@@ -465,6 +599,30 @@ outputData.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -525,6 +683,30 @@ globalFunctions.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -593,6 +775,30 @@ string.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 
 number.addEventListener("click", function(evt) {
@@ -648,6 +854,30 @@ number.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -719,6 +949,30 @@ math.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 domNodes.addEventListener("click", function(evt) {
     removeGreeting()
@@ -781,6 +1035,30 @@ domNodes.addEventListener("click", function(evt) {
         if (evt.keyCode == 37) {
             htmlQuestion.textContent = prevItem()
             htmlAnswer.textContent = question[i][1]
+        }
+    })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
         }
     })
 })
@@ -850,6 +1128,30 @@ domMethods.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
+
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
 elementMethods.addEventListener("click", function(evt) {
     removeGreeting()
@@ -916,26 +1218,28 @@ elementMethods.addEventListener("click", function(evt) {
             htmlAnswer.textContent = question[i][1]
         }
     })
-})
-let points = 0
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1)
+        htmlQuestion.textContent = nextItem();
+        console.log(question.length)
+        console.log(rightAnswers)
+        if (points > 0) {
+            score.classList.add("green")
+            score.classList.remove("red")
+        }
 
-
-addPoint.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    points = points + 1;
-    score.textContent = points;
-    if (points > 0) {
-        score.classList.add("green")
-        score.classList.remove("red")
-    }
-
-})
-subPoint.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    points = points - 1;
-    score.textContent = points;
-    if (points < 0) {
-        score.classList.add("red")
-        score.classList.remove("green")
-    }
+    })
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem()
+        if (points < 0) {
+            score.classList.add("red")
+            score.classList.remove("green")
+        }
+    })
 })
