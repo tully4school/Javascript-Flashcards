@@ -1,3 +1,5 @@
+let buttons = document.getElementsByTagName("button")
+let data = document.querySelectorAll('[data-category]')
 let greeting = document.querySelector(".greeting");
 let rules = document.querySelector(".rules");
 let htmlCard = document.querySelector(".card-container");
@@ -21,8 +23,6 @@ let math = document.querySelector(".math-methods");
 let domNodes = document.querySelector(".dom-node-prop");
 let domMethods = document.querySelector(".dom-methods");
 let elementMethods = document.querySelector(".element-methods");
-let mobileDrop = document.querySelector(".mobile-drop");
-let mobileDD = document.querySelectorAll(".mobileDD");
 let points = 0;
 let j = 0;
 let i = 0;
@@ -225,6 +225,7 @@ function removeGreeting() {
 
 function nextItem() {
     i = i + 1;
+    i = i % question.length;
     return question[i][0];
 }
 
@@ -295,144 +296,156 @@ function subP() {
         }
     })
 }
-function dropDown(){
-		for (let i = 0; i < mobileDD.length; i++){
-		mobileDD[i].classList.toggle("hidden")
-	}
-}
 //INITIAL GREETING
 greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!";
 rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!";
 
+
+for (let i = 0; i < data.length; i++) {
+    data[i].addEventListener("click", function(evt) {
+        console.log(evt.target)
+        evt.preventDefault()
+            // console.dir(evt.target)
+        if (evt.target.dataset.category == evt.target.dataset.category) {
+            question = Object.entries(questions[i])
+            removeGreeting()
+            load()
+            nextItem();
+            prevItem();
+            load();
+            nextCard();
+            previousCard();
+        }
+
+    })
+}
 //questions
-basic.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-arrayMethods.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 1]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-basicOperators.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 2]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-bitwiseOperators.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 3]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-ternaryOperators.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 4]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-outputData.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 5]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-outputData.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 6]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-globalFunctions.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 7]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-string.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 8]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-number.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 9]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-math.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 10]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-domNodes.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 11]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-domMethods.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 12]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-elementMethods.addEventListener("click", function(evt) {
-    question = Object.entries(questions[j, 13]);
-    removeGreeting();
-    nextItem();
-    prevItem();
-    load();
-    nextCard();
-    previousCard();
-})
-mobileDrop.addEventListener("click", function(evt){
-	dropDown()
-})
-addP();
-subP();
+// buttons[1].addEventListener("click", function(evt) {
+//     console.log(evt.target)
+//     question = Object.entries(questions[i]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// arrayMethods.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 1]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// basicOperators.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 2]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// bitwiseOperators.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 3]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// ternaryOperators.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 4]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// outputData.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 5]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// outputData.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 6]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// globalFunctions.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 7]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// string.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 8]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// number.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 9]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// math.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 10]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// domNodes.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 11]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// domMethods.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 12]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// elementMethods.addEventListener("click", function(evt) {
+//     question = Object.entries(questions[i, 13]);
+//     removeGreeting();
+//     nextItem();
+//     prevItem();
+//     load();
+//     nextCard();
+//     previousCard();
+// })
+// addP();
+// subP();
