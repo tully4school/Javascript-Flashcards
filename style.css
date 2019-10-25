@@ -129,9 +129,6 @@ main {
 	font-size: 24px;
 	margin: 30px;
 }
-.show {
-	display: revert;
-}
 .greeting {
 	font-size: 40px;
 	font-weight: bold;
@@ -231,25 +228,4 @@ button:active {
 	.rules {
 		font-size: 19px;
 	}
-
-
-
-
-/*PREVIOUS CODE FOR FLIP*/
-/*.card-container {
-	position: relative;
-	width: 550px;
-	height: 250px;
-	border: 1px solid black;
-	margin: 0 auto;
-	margin-top: 15vh;
-	margin-bottom: 20px;
-	overflow: scroll;
-	scrollbar-width: none;
-}*/
-/*.card-container:active .flipper,  {
-}*/
-
-/*.click {
-	padding: 0 8%;
-}*/
+}
