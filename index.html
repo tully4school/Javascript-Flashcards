@@ -64,19 +64,21 @@
 		<!-- 		NAVBAR END -->
 		<div class="mobilenav">
 			<button class="mobile-drop">Categories</button>
-			<button class="linkbtn mobileDD hidden basic">Basic Vocabulary</button>
-			<button class="linkbtn mobileDD hidden basic-operators">Basic Operators</button>
-			<button class="linkbtn mobileDD hidden ternary-operators">Ternary Operators</button>
-			<button class="linkbtn mobileDD hidden bitwise-operators">Bitwise Operators</button>
-			<button class="linkbtn mobileDD hidden output-data">Outputting Data</button>
-			<button class="linkbtn mobileDD hidden global-functions">Global Functions</button>
-			<button class="linkbtn mobileDD hidden array-methods">Array Methods</button>
-			<button class="linkbtn mobileDD hidden string-methods">String Methods</button>
-			<button class="linkbtn mobileDD hidden number-methods">Number Methods</button>
-			<button class="linkbtn mobileDD hidden math-methods">Math Methods</button>
-			<button class="linkbtn mobileDD hidden dom-node-prop mobileDD hidden">DOM Node Properties</button>
-			<button class="linkbtn mobileDD hidden dom-methods mobileDD hidden">DOM Node Methods</button>
-			<button class="linkbtn mobileDD hidden element-methods mobileDD hidden">DOM Element Methods</button>
+			<div class="dropContainer hidden">
+				<button class="linkbtn mobileDD hidden" data-category="basic">Basic Vocabulary</button>
+				<button class="linkbtn mobileDD hidden" data-category="basic-operators">Basic Operators</button>
+				<button class="linkbtn mobileDD hidden" data-category="ternary-operators">Ternary Operators</button>
+				<button class="linkbtn mobileDD hidden" data-category="bitwise-operators">Bitwise Operators</button>
+				<button class="linkbtn mobileDD hidden" data-category="output-data">Outputting Data</button>
+				<button class="linkbtn mobileDD hidden" data-category="global-functions">Global Functions</button>
+				<button class="linkbtn mobileDD hidden" data-category="array-methods">Array Methods</button>
+				<button class="linkbtn mobileDD hidden" data-category="string-methods">String Methods</button>
+				<button class="linkbtn mobileDD hidden" data-category="number-methods">Number Methods</button>
+				<button class="linkbtn mobileDD hidden" data-category="math-methods">Math Methods</button>
+				<button class="linkbtn mobileDD hidden" data-category="dom-node-prop">DOM Node Properties</button>
+				<button class="linkbtn mobileDD hidden" data-category="dom-methods">DOM Node Methods</button>
+				<button class="linkbtn mobileDD hidden" data-category="element-methods">DOM Element Methods</button>
+			</div>
 		</div>
 		<div class="difficulty">
 			<button class="easy">Easy</button>
@@ -118,7 +120,7 @@
 			</div>
 		</div>
 	</main>
-	<script src="main3.js"></script>
+	<script src="main.js"></script>
 	<script src="questions.js"></script>
 </body>
 </html>

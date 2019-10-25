@@ -1,6 +1,5 @@
 let mobileNav = document.querySelector('.mobile-drop')
 let mobileDD = document.getElementsByClassName('mobileDD')
-let overflowContainer = document.querySelector('.dropContainer')
 let data = document.querySelectorAll('[data-category]')
 let greeting = document.querySelector(".greeting");
 let rules = document.querySelector(".rules");
@@ -14,39 +13,32 @@ let subPoint = document.querySelector(".wrong");
 let score = document.querySelector(".digits");
 let points = 0;
 let i = 0
-
-
-//FUNCTIONS/////////////////////////////////////////////////////
-
-//REMOVES THE INITIAL GREETING FROM THE CARD ON LOAD OF QUESTIONS
+    //FUNCTIONS
 function removeGreeting() {
     greeting.style.display = "none";
     rules.style.display = "none";
 }
-//LOGIC FOR MOVING TO THE NEXT CARD
-function nextItem() {
 
-    console.log(i)
+function nextItem() {
     i = i + 1;
     i = i % question.length
     return question[i][0];
 
 }
-//LOGIC FOR MOVING TO A PREVIOUS CARD
+
 function prevItem() {
-    console.log(i)
     if (i === 0) {
         i = question.length;
     }
     i = i - 1;
     return question[i][0];
 }
-//LOAD INITIAL QUESTIONS
+
 function load() {
     htmlQuestion.textContent = question[0][0];
     htmlAnswer.textContent = question[0][1];
 }
-//MOVE TO NEXT CARD
+
 function nextCard() {
     next.addEventListener('click', function(evt) {
         htmlQuestion.textContent = nextItem();
@@ -59,7 +51,7 @@ function nextCard() {
         }
     })
 }
-//MOVE TO PREVIOUS CARD
+
 function previousCard() {
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem();
@@ -73,7 +65,7 @@ function previousCard() {
         }
     })
 }
-//TO ADD POINTS USING "I GOT IT RIGHT BUTTON"
+
 function addPoints() {
     addPoint.addEventListener("click", function(evt) {
         evt.preventDefault();
@@ -88,7 +80,7 @@ function addPoints() {
 
     })
 }
-//TO SUBTRACT POINTS USING "I GOT IT WRONG BUTTON"
+
 function subtractPoints() {
     subPoint.addEventListener("click", function(evt) {
         evt.preventDefault();
@@ -107,25 +99,20 @@ function mobileDropdown() {
         console.log(evt)
         for (let i = 0; i < mobileDD.length; i++) {
             mobileDD[i].classList.toggle('hidden')
-            overflowContainer.classList.toggle('hidden')
-            overflowContainer.classList.toggle('drop')
         }
-
     })
-
 }
 
-//INITIAL GREETING/////////////////////////////////////////////////////////////
+//INITIAL GREETING
 greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!";
 rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!";
-
-
-//MAIN DECKS - CRAZY ASS LOGIC TO MAKE THE PAGE MORE "DYNAMIC"....IT WORKED//////////////////////
-//DESKTOP
+//CRAZY ASS LOGIC TO MAKE THE PAGE MORE "DYNAMIC"....IT WORKED
 for (let i = 0; i < data.length; i++) {
-    console.log(data[i])
     data[i].addEventListener("click", function(evt) {
+
+        console.log(evt.target)
         evt.preventDefault()
+            // console.dir(evt.target)
         if (evt.target.dataset.category == evt.target.dataset.category) {
             question = Object.entries(questions[i])
             removeGreeting()
@@ -135,17 +122,7 @@ for (let i = 0; i < data.length; i++) {
 
     })
 
-}
-//MOBILE
-for (let i = 0; i < mobileDD.length; i++) {
-    mobileDD[i].addEventListener("click", function(evt) {
-        evt.preventDefault()
-        if (evt.target.dataset.category == evt.target.dataset.category) {
-            question = Object.entries(questions[i])
-            removeGreeting()
-            load()
-        }
-    })
+
 }
 mobileDropdown()
     //MOVE THROUGH CARDS

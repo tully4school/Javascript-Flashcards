@@ -74,7 +74,7 @@ main {
 .difficulty {
 	display: flex;
 	justify-content: center;
-	margin: 10px 0;
+	margin: 50px 0;
 }
 .easy, .medium, .hard {
 	font-size: 15px;
@@ -197,6 +197,13 @@ button:active {
     color: white;
     padding-bottom: 6px;
 }
+.drop {
+	overflow: scroll;
+	height: 176px;
+}
+.mobileDD {
+	font-size: 33px;
+}
 @media screen and (min-width: 762px){
 	.mobilenav {
 		display:none;
@@ -207,7 +214,23 @@ button:active {
 		display:none;
 	}
 }
+@media screen and (max-width: 613px){
+	.card-container, .front-of-card, .back-of-card {
+	width: 98%;
+	}
+	.easy, .medium, .hard {
+		width: 100%;
 
+	}
+}
+
+@media screen and (max-width: 493px){
+	.greeting, .question {
+		font-size: 33px;
+	}
+	.rules {
+		font-size: 19px;
+	}
 
 
 
