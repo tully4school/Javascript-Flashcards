@@ -1,5 +1,13 @@
 /*Flipcard effect created with the help of w3 schools - i know there is an easier wat but dont have the time*/
 /*navbar with the help of w3 schools*/
+@keyframes load-cards {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 * {
 	box-sizing: border-box;
 }
@@ -93,6 +101,7 @@ main {
 	}
 
 .card-container, .front-of-card, .back-of-card {
+	animation: load-cards 1s;
 	width: 550px;
 	height: 250px;
 	margin-top: 20px;
@@ -197,9 +206,13 @@ button:active {
 .drop {
 	overflow: scroll;
 	height: 176px;
+	background-color: #dedede;
 }
 .mobileDD {
 	font-size: 33px;
+}
+.mobileDD:hover {
+	border: 1px solid grey;
 }
 @media screen and (min-width: 762px){
 	.mobilenav {
@@ -213,19 +226,31 @@ button:active {
 }
 @media screen and (max-width: 613px){
 	.card-container, .front-of-card, .back-of-card {
-	width: 98%;
+		width: 98%;
 	}
 	.easy, .medium, .hard {
 		width: 100%;
+	}
+	.difficulty {
+		margin-top: 27px;
+	}
+	.medium {
+		margin: 0 10px;
 	}
 }
 
 @media screen and (max-width: 493px){
 	.greeting, .question {
 		font-size: 33px;
+	}
+	.question {
 		margin-top: 27%;
 	}
 	.rules {
 		font-size: 19px;
+	}
+	.answer {
+		margin-top: 14px;
+		font-size: 21px;
 	}
 }
