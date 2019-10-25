@@ -20,8 +20,8 @@ Start the game by selecting the category you want from the navigation menu. When
 This Site/App was created by Joseph Tully
 
 ## Acknowledgments
-1. [W3 Schools] (http://www.w3schools.com)
-2. [General Assembly] (http://www.generalassemb.ly)
+1. [W3 Schools](http://www.w3schools.com)
+2. [General Assembly]git a(http://www.generalassemb.ly)
 3. Zakk F.
 4. Erin K.
 5. Blake H.
