@@ -14,7 +14,7 @@ Start the game by selecting the category you want from the navigation menu. When
 3. Javascript ES6
 
 ## Text Editor
-[Sublime Text 3] (http://www.sublimetext.com)
+[Sublime Text 3](http://www.sublimetext.com)
 
 ## Authors
 This Site/App was created by Joseph Tully
