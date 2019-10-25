@@ -1,3 +1,4 @@
+
 let data = document.querySelectorAll('[data-category]')
 let greeting = document.querySelector(".greeting");
 let rules = document.querySelector(".rules");
@@ -11,12 +12,16 @@ let subPoint = document.querySelector(".wrong");
 let score = document.querySelector(".digits");
 let points = 0;
 let i = 0
-    //FUNCTIONS
+
+
+//FUNCTIONS/////////////////////////////////////////////////////
+
+//REMOVES THE INITIAL GREETING FROM THE CARD ON LOAD OF QUESTIONS
 function removeGreeting() {
     greeting.style.display = "none";
     rules.style.display = "none";
 }
-
+//LOGIC FOR MOVING TO THE NEXT CARD
 function nextItem() {
 
     console.log(i)
@@ -25,7 +30,7 @@ function nextItem() {
     return question[i][0];
 
 }
-
+//LOGIC FOR MOVING TO A PREVIOUS CARD
 function prevItem() {
 	console.log(i)
     if (i === 0) {
@@ -34,12 +39,12 @@ function prevItem() {
     i = i - 1;
     return question[i][0];
 }
-
+//LOAD INITIAL QUESTIONS
 function load() {
     htmlQuestion.textContent = question[0][0];
     htmlAnswer.textContent = question[0][1];
 }
-
+//MOVE TO NEXT CARD
 function nextCard() {
     next.addEventListener('click', function(evt) {
         htmlQuestion.textContent = nextItem();
@@ -52,7 +57,7 @@ function nextCard() {
         }
     })
 }
-
+//MOVE TO PREVIOUS CARD
 function previousCard() {
     previous.addEventListener('click', function(evt) {
         htmlQuestion.textContent = prevItem();
@@ -66,7 +71,7 @@ function previousCard() {
         }
     })
 }
-
+//TO ADD POINTS USING "I GOT IT RIGHT BUTTON"
 function addPoints() {
     addPoint.addEventListener("click", function(evt) {
         evt.preventDefault();
@@ -81,7 +86,7 @@ function addPoints() {
 
     })
 }
-
+//TO SUBTRACT POINTS USING "I GOT IT WRONG BUTTON"
 function subtractPoints() {
     subPoint.addEventListener("click", function(evt) {
         evt.preventDefault();
@@ -94,10 +99,12 @@ function subtractPoints() {
         }
     })
 }
-//INITIAL GREETING
+//INITIAL GREETING/////////////////////////////////////////////////////////////
 greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!";
 rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!";
-//CRAZY ASS LOGIC TO MAKE THE PAGE MORE "DYNAMIC"....IT WORKED
+
+
+//MAIN DECKS - CRAZY ASS LOGIC TO MAKE THE PAGE MORE "DYNAMIC"....IT WORKED//////////////////////
 for (let i = 0; i < data.length; i++) {
 	console.log(data[i])
     data[i].addEventListener("click", function(evt) {
