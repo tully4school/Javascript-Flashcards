@@ -1,6 +1,9 @@
 # Flashcards For Javascript
 Flashcards for Javascript is an game to help a a javascript beginner keep their skills refreshed.
 
+## Link
+[https://tully4school.github.io/Javascript-Flashcards/] (https://tully4school.github.io/Javascript-Flashcards/)
+
 ## How To Play
 Start the game by selecting the category you want from the navigation menu. When your cards load, answer the question to yourself, then hover over the card to see if you got the answer right. If you get the card right, click "I got it right!" and if you got it wrong click "i got it wrong". The cards that were correct will not be displayed again until you refresh the page, and points will be added to your score. The cards will automatically move to the next question after your submission. If you want to scroll through the cards you can either click next or previous or use the right and left arrow keys.
 
