@@ -24,4 +24,5 @@ This Site/App was created by Joseph Tully
 2. [General Assembly](http://www.generalassemb.ly)
 3. Zakk F.
 4. Erin K.
+5. Paula B.
 5. Blake H.
