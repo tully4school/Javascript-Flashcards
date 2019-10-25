@@ -241,7 +241,10 @@ button:active {
 
 @media screen and (max-width: 493px){
 	.greeting, .question {
-		font-size: 33px;
+		font-size: 31px;
+	}
+	.greeting {
+		margin-top: 15px
 	}
 	.question {
 		margin-top: 21%;
