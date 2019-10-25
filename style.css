@@ -257,3 +257,9 @@ button:active {
 		font-size: 21px;
 	}
 }
+@media screen and (max-width: 435px){
+	.question {
+		font-size: 26px;
+		margin-top: 105px;
+	}
+}
