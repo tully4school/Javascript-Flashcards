@@ -220,18 +220,17 @@ button:active {
 	}
 	.easy, .medium, .hard {
 		width: 100%;
-
 	}
 }
 
 @media screen and (max-width: 493px){
 	.greeting, .question {
 		font-size: 33px;
+		margin-top: 27%;
 	}
 	.rules {
 		font-size: 19px;
 	}
-
 
 
 
