@@ -209,7 +209,7 @@ button:active {
 	background-color: #dedede;
 }
 .mobileDD {
-	font-size: 33px;
+	font-size: 30px;
 }
 .mobileDD:hover {
 	border: 1px solid grey;
@@ -244,7 +244,7 @@ button:active {
 		font-size: 33px;
 	}
 	.question {
-		margin-top: 27%;
+		margin-top: 21%;
 	}
 	.rules {
 		font-size: 19px;
