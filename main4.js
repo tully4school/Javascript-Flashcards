@@ -1,3 +1,30 @@
+let greeting = document.querySelector(".greeting");
+let rules = document.querySelector(".rules");
+let htmlCard = document.querySelector(".card-container");
+let htmlQuestion = document.querySelector(".click .question");
+let htmlAnswer = document.querySelector(".click .answer");
+let next = document.querySelector(".next");
+let previous = document.querySelector(".previous");
+let addPoint = document.querySelector(".pass");
+let subPoint = document.querySelector(".wrong");
+let score = document.querySelector(".digits");
+let basic = document.querySelector(".basic");
+let arrayMethods = document.querySelector(".array-methods");
+let basicOperators = document.querySelector(".basic-operators");
+let ternaryOperators = document.querySelector(".ternary-operators");
+let bitwiseOperators = document.querySelector(".bitwise-operators");
+let outputData = document.querySelector(".output-data");
+let globalFunctions = document.querySelector(".global-functions");
+let string = document.querySelector(".string-methods");
+let number = document.querySelector(".number-methods");
+let math = document.querySelector(".math-methods");
+let domNodes = document.querySelector(".dom-node-prop");
+let domMethods = document.querySelector(".dom-methods");
+let elementMethods = document.querySelector(".element-methods");
+let points = 0;
+let j = 0;
+let i = 0;
+
 let questions = [{
     "Attribute": "A key-value pair in an HTML element. You can use HTML attributes to control certain aspects of an element, like where the element links to or the size of the element.",
     "Array": "A list of JavaScript values. In an array, each value has an index, which is the numbered position of that value in the array. The first value is at index 0, the next value is at index 1, and so on.",
@@ -186,3 +213,182 @@ let questions = [{
     "setAttributeNodeNS()": "Adds a new namespaced attribute node to an element",
 
 }]
+
+
+    //FUNCTIONS
+function removeGreeting() {
+    greeting.style.display = "none";
+    rules.style.display = "none";
+}
+
+function nextItem() {
+    i === 0
+    i = i + 1;
+    i = i % question.length;
+    console.log(i)
+    return question[i][0];
+
+}
+
+function prevItem() {
+    if (i === 0) {
+        i = question.length;
+    }
+    i = i - 1;
+    console.log(i)
+    return question[i][0];
+}
+
+function load() {
+    htmlQuestion.textContent = question[i][0];
+    htmlAnswer.textContent = question[i][1];
+}
+
+function nextCard() {
+    next.addEventListener('click', function(evt) {
+        htmlQuestion.textContent = nextItem();
+        htmlAnswer.textContent = question[i][1];
+        console.log(question[i])
+    })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 39) {
+            htmlQuestion.textContent = nextItem();
+            htmlAnswer.textContent = question[i][1];
+        }
+    })
+}
+
+function previousCard() {
+    previous.addEventListener('click', function(evt) {
+        htmlQuestion.textContent = prevItem();
+        htmlAnswer.textContent = question[i][1];
+
+    })
+    document.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == 37) {
+            htmlQuestion.textContent = prevItem();
+            htmlAnswer.textContent = question[i][1];
+        }
+    })
+}
+
+function addP() {
+    addPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points + 1;
+        score.textContent = points;
+        let rightAnswers = question.splice([i], 1);
+        htmlQuestion.textContent = nextItem();
+        if (points > 0) {
+            score.classList.add("green");
+            score.classList.remove("red");
+        }
+
+    })
+}
+
+function subP() {
+    subPoint.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        points = points - 1;
+        score.textContent = points;
+        htmlQuestion.textContent = nextItem();
+        if (points < 0) {
+            score.classList.add("red");
+            score.classList.remove("green");
+        }
+    })
+}
+//INITIAL GREETING
+greeting.textContent = "Welcome to Javascript Flashcards! Hover over this card to learn how to play!";
+rules.innerHTML = "Start by picking a category above.</br></br>Once you are finished with a card click 'Next Card'</br></br>Give yourself points or remove them based on how well you do!</br></br>Good Luck!";
+
+//questions
+basic.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i]);
+    removeGreeting();
+    load();
+
+})
+arrayMethods.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 1]);
+    removeGreeting();
+    load();
+
+})
+basicOperators.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 2]);
+    removeGreeting();
+    load();
+
+})
+bitwiseOperators.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 3]);
+    removeGreeting();
+    load();
+
+})
+ternaryOperators.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 4]);
+    removeGreeting();
+    load();
+
+})
+outputData.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 5]);
+    removeGreeting();
+    load();
+
+})
+outputData.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 6]);
+    removeGreeting();
+    load();
+
+})
+globalFunctions.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 7]);
+    removeGreeting();
+    load();
+
+})
+string.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 8]);
+    removeGreeting();
+    load();
+
+})
+number.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 9]);
+    removeGreeting();
+    load();
+
+})
+math.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 10]);
+    removeGreeting();
+    load();
+
+})
+domNodes.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 11]);
+    removeGreeting();
+    load();
+
+})
+domMethods.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 12]);
+    removeGreeting();
+    load();
+
+})
+elementMethods.addEventListener("click", function(evt) {
+    question = Object.entries(questions[i, 13]);
+    removeGreeting();
+    load();
+
+})
+    nextCard();
+    previousCard();
+addP();
+subP();
