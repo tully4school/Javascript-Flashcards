@@ -1,76 +1,83 @@
 /*Flipcard effect created with the help of w3 schools - i know there is an easier wat but dont have the time*/
 /*navbar with the help of w3 schools*/
 @keyframes load-cards {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
 }
 * {
 	box-sizing: border-box;
 }
 main {
-	width:100%;
+	width: 100%;
+}
+body {
+	background: #fff;
 }
 .navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-  width: 100%;
+	overflow: hidden;
+	background-color: #333;
+	font-family: Arial;
+	width: 100%;
 }
 .navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	float: left;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 .dropdown {
-  float: left;
-  overflow: hidden;
+	float: left;
+	overflow: hidden;
 }
 .linkbtn {
 	width: 100%;
 }
-.dropdown .dropbtn, .linkbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+.dropdown .dropbtn,
+.linkbtn {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: grey;
-  transition: ease .3s;
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+	background-color: grey;
+	transition: ease 0.3s;
 }
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px grey;
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px grey;
+	z-index: 1;
 }
-.dropdown-content a, .linkbtn {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+.dropdown-content a,
+.linkbtn {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
-.dropdown-content a:hover, .linkbtn:hover {
-  background-color: #ddd;
+.dropdown-content a:hover,
+.linkbtn:hover {
+	background-color: #ddd;
 }
 .dropdown:hover .dropdown-content {
-  display: block;
-  transition: ease 1s;
+	display: block;
+	transition: ease 1s;
 }
 .top {
 	display: flex;
@@ -84,7 +91,9 @@ main {
 	justify-content: center;
 	margin: 50px 0;
 }
-.easy, .medium, .hard {
+.easy,
+.medium,
+.hard {
 	font-size: 15px;
 	width: 148px;
 	height: 33px;
@@ -96,11 +105,14 @@ main {
 	perspective: 1000px;
 	margin: 10px auto;
 }
-.card-container:hover .flipper, .card-container.hover .flipper {
+.card-container:hover .flipper,
+.card-container.hover .flipper {
 	transform: rotateY(180deg);
-	}
+}
 
-.card-container, .front-of-card, .back-of-card {
+.card-container,
+.front-of-card,
+.back-of-card {
 	animation: load-cards 1s;
 	width: 550px;
 	height: 250px;
@@ -111,7 +123,8 @@ main {
 	transform-style: preserve-3d;
 	position: relative;
 }
-.front-of-card, .back-of-card {
+.front-of-card,
+.back-of-card {
 	background-color: #ececec;
 	box-shadow: 0px 8px 16px 0px grey;
 	backface-visibility: hidden;
@@ -127,11 +140,12 @@ main {
 .back-of-card {
 	transform: rotateY(180deg);
 }
-.question,.answer {
+.question,
+.answer {
 	text-align: center;
 }
 .question {
-	margin-top:17%;
+	margin-top: 17%;
 	font-size: 44px;
 }
 .answer {
@@ -166,7 +180,7 @@ main {
 }
 .score {
 	display: flex;
-	font-size:25px;
+	font-size: 25px;
 	font-weight: bold;
 	height: 25px;
 	justify-content: center;
@@ -183,7 +197,10 @@ main {
 button:active {
 	box-shadow: none;
 }
-.correct, .wrong, .previous, .next {
+.correct,
+.wrong,
+.previous,
+.next {
 	background-color: white;
 	border: 1px solid black;
 	padding: 7px;
@@ -198,10 +215,10 @@ button:active {
 .mobile-drop {
 	width: 100%;
 	font-size: 46px;
-    background-color: #333;
-    border: .5px solid grey;
-    color: white;
-    padding-bottom: 6px;
+	background-color: #333;
+	border: 0.5px solid grey;
+	color: white;
+	padding-bottom: 6px;
 }
 .drop {
 	overflow: scroll;
@@ -214,21 +231,25 @@ button:active {
 .mobileDD:hover {
 	border: 1px solid grey;
 }
-@media screen and (min-width: 762px){
+@media screen and (min-width: 762px) {
 	.mobilenav {
-		display:none;
+		display: none;
 	}
 }
-@media screen and (max-width: 761px){
+@media screen and (max-width: 761px) {
 	.navbar {
-		display:none;
+		display: none;
 	}
 }
-@media screen and (max-width: 613px){
-	.card-container, .front-of-card, .back-of-card {
+@media screen and (max-width: 613px) {
+	.card-container,
+	.front-of-card,
+	.back-of-card {
 		width: 98%;
 	}
-	.easy, .medium, .hard {
+	.easy,
+	.medium,
+	.hard {
 		width: 100%;
 	}
 	.difficulty {
@@ -239,12 +260,13 @@ button:active {
 	}
 }
 
-@media screen and (max-width: 493px){
-	.greeting, .question {
+@media screen and (max-width: 493px) {
+	.greeting,
+	.question {
 		font-size: 31px;
 	}
 	.greeting {
-		margin-top: 15px
+		margin-top: 15px;
 	}
 	.question {
 		margin-top: 21%;
@@ -257,7 +279,7 @@ button:active {
 		font-size: 21px;
 	}
 }
-@media screen and (max-width: 435px){
+@media screen and (max-width: 435px) {
 	.question {
 		font-size: 26px;
 		margin-top: 105px;
